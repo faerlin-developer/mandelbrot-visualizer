@@ -1,7 +1,6 @@
 set(SOURCES
         "screen.cpp"
         "mandelbrot.cpp"
-        "zoomlist.cpp"
         "fractal.cpp"
         "buffer.cpp"
         "transformer.cpp"
