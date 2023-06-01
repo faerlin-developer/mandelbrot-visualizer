@@ -24,5 +24,7 @@ public:
 
     void setBuffer(Uint32 *buffer);
 
+    bool isWindowInFocus();
+
     void close();
 };

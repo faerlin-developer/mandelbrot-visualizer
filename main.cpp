@@ -1,56 +1,39 @@
 #include <iostream>
 #include "screen.h"
-#include "buffer.h"
-#include "transformer.h"
 #include "mandelbrot.h"
 #include "julia.h"
-
-void initializeMandelbrot(Mandelbrot *mandelbrot);
-
-void initializeJulia(Julia *julia);
-
-void drawFractal(Fractal *fractal, Screen *screen, Buffer *buffer);
+#include "event.h"
+#include "config.h"
+#include "main.h"
 
 int main(int argc, char *argv[]) {
 
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        return 0;
-    }
-
-    Screen jScreen{"Julia Visualizer", 400, 300};
-    Screen mScreen{"Mandelbrot Visualizer", 800, 600};
-
+    Screen mScreen{"Mandelbrot Visualizer", MANDELBROT_WINDOW_WIDTH, MANDELBROT_WINDOW_HEIGHT};
+    Screen jScreen{"Julia Visualizer", JULIA_WINDOW_WIDTH, JULIA_WINDOW_HEIGHT};
     if (!jScreen.init() || !mScreen.init()) {
         std::cout << "ERROR: failed to initialize SDL" << std::endl;
         return 0;
     }
+    initializeWindowPosition(mScreen.window, jScreen.window);
 
-    int windowX, windowY;
-    SDL_GetWindowPosition(mScreen.window, &windowX, &windowY);
-    SDL_SetWindowPosition(mScreen.window, windowX - 200, windowY);
-    SDL_SetWindowPosition(jScreen.window, windowX + 600, windowY + 150);
-
-    Mandelbrot mandelbrot(mScreen.WIDTH, mScreen.HEIGHT, 1000);
-    Julia julia(jScreen.WIDTH, jScreen.HEIGHT, 200);
-    Buffer mBuffer(mScreen.WIDTH, mScreen.HEIGHT);
-    Buffer jBuffer(jScreen.WIDTH, jScreen.HEIGHT);
-
+    Mandelbrot mandelbrot(mScreen.WIDTH, mScreen.HEIGHT, MANDELBROT_MAX_ITERATION);
     initializeMandelbrot(&mandelbrot);
+    draw(&mandelbrot, &mScreen);
+
+    Julia julia(jScreen.WIDTH, jScreen.HEIGHT, JULIA_MAX_ITERATION);
     initializeJulia(&julia);
-    drawFractal(&mandelbrot, &mScreen, &mBuffer);
-    drawFractal(&julia, &jScreen, &jBuffer);
+    draw(&julia, &jScreen);
 
     int mouseX = 0;
     int mouseY = 0;
     int newMouseX, newMouseY;
     while (true) {
 
-        Uint32 mFlags = SDL_GetWindowFlags(mScreen.window);
         SDL_GetMouseState(&newMouseX, &newMouseY);
-        if ((mFlags & SDL_WINDOW_MOUSE_FOCUS) && (newMouseX != mouseX || newMouseY != mouseY)) {
-            auto [r, i] = mandelbrot.transformer.toComplex(mouseX, mouseY);
-            julia.setC(r, i);
-            drawFractal(&julia, &jScreen, &jBuffer);
+        if ((newMouseX != mouseX || newMouseY != mouseY) && mScreen.isWindowInFocus()) {
+            auto [re, im] = mandelbrot.transformer.toComplex(mouseX, mouseY);
+            julia.setC(re, im);
+            draw(&julia, &jScreen);
             mouseX = newMouseX;
             mouseY = newMouseY;
         }
@@ -58,39 +41,46 @@ int main(int argc, char *argv[]) {
         SDL_Event event;
         if (SDL_PollEvent(&event)) {
 
-            if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE) {
+            if (Event::windowClosed(event)) {
                 break;
             }
 
-            if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_LEFT) {
+            if (Event::leftMouseButtonClicked(event) && mScreen.isWindowInFocus()) {
                 mandelbrot.transformer.moveCenter(mouseX, mouseY);
-                mandelbrot.transformer.zoom(0.40);
-                drawFractal(&mandelbrot, &mScreen, &mBuffer);
+                mandelbrot.transformer.zoom(ZOOM_IN_SCALE);
+                draw(&mandelbrot, &mScreen);
             }
 
-            if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_RIGHT) {
-                mandelbrot.transformer.zoom(2.5);
-                drawFractal(&mandelbrot, &mScreen, &mBuffer);
+            if (Event::rightMouseButtonClicked(event) && mScreen.isWindowInFocus()) {
+                mandelbrot.transformer.zoom(ZOOM_OUT_SCALE);
+                draw(&mandelbrot, &mScreen);
             }
 
-            if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_MIDDLE) {
+            if (Event::middleMouseButtonClicked(event) && mScreen.isWindowInFocus()) {
                 mandelbrot.transformer.moveCenter(mouseX, mouseY);
-                drawFractal(&mandelbrot, &mScreen, &mBuffer);
+                draw(&mandelbrot, &mScreen);
             }
 
-            if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE) {
+            if (Event::spaceKeyPressed(event)) {
                 initializeMandelbrot(&mandelbrot);
                 initializeJulia(&julia);
-                drawFractal(&mandelbrot, &mScreen, &mBuffer);
-                drawFractal(&julia, &jScreen, &jBuffer);
+                draw(&mandelbrot, &mScreen);
+                draw(&julia, &jScreen);
             }
-
         }
     }
 
-    std::cout << "Done!" << std::endl;
+    mScreen.close();
+    jScreen.close();
 
     return 0;
+}
+
+void initializeWindowPosition(SDL_Window *mWindow, SDL_Window *jWindow) {
+    int windowX, windowY;
+    SDL_GetWindowPosition(mWindow, &windowX, &windowY);
+    SDL_SetWindowPosition(mWindow, windowX - 200, windowY);
+    SDL_SetWindowPosition(jWindow, windowX + 600, windowY + 150);
 }
 
 void initializeMandelbrot(Mandelbrot *mandelbrot) {
@@ -104,8 +94,8 @@ void initializeJulia(Julia *julia) {
     julia->setC(0, 0);
 }
 
-void drawFractal(Fractal *fractal, Screen *screen, Buffer *buffer) {
-    fractal->run(buffer);
-    screen->setBuffer(buffer->buffer.get());
+void draw(Fractal *fractal, Screen *screen) {
+    fractal->generate();
+    screen->setBuffer(fractal->buffer.pointer.get());
     screen->update();
 }

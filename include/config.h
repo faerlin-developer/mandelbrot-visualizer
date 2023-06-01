@@ -1,0 +1,10 @@
+#pragma once
+
+const int MANDELBROT_WINDOW_WIDTH = 800;
+const int MANDELBROT_WINDOW_HEIGHT = 600;
+const int MANDELBROT_MAX_ITERATION = 1000;
+const int JULIA_WINDOW_WIDTH = 400;
+const int JULIA_WINDOW_HEIGHT = 300;
+const int JULIA_MAX_ITERATION = 200;
+const double ZOOM_IN_SCALE = 0.4;
+const double ZOOM_OUT_SCALE = 2.5;

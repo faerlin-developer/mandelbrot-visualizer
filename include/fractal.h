@@ -7,6 +7,7 @@ class Fractal {
 public:
     int max_iterations;
     CoordinateTransformer transformer;
+    Buffer buffer;
 
 private:
     std::unique_ptr<int[]> iterations;
@@ -16,14 +17,14 @@ private:
 public:
     Fractal(int width, int height, int max_iterations);
 
-    void run(Buffer *buffer);
+    void generate();
 
 protected:
     void reset();
 
     void calculateIterationsAndHistogram();
 
-    void calculateFractal(Buffer *buffer);
+    void calculateFractal();
 
     virtual int getIterations(double x, double y) = 0;
 };

@@ -7,12 +7,13 @@ Fractal::Fractal(int width, int height, int max_iterations) :
         max_iterations(max_iterations),
         transformer(width, height),
         iterations(new int[transformer.WIDTH * transformer.HEIGHT]()),
-        histogram(new int[max_iterations]()) {}
+        histogram(new int[max_iterations]()),
+        buffer(width, height) {}
 
-void Fractal::run(Buffer *buffer) {
+void Fractal::generate() {
     reset();
     calculateIterationsAndHistogram();
-    calculateFractal(buffer);
+    calculateFractal();
 }
 
 void Fractal::reset() {
@@ -36,7 +37,7 @@ void Fractal::calculateIterationsAndHistogram() {
     }
 }
 
-void Fractal::calculateFractal(Buffer *buffer) {
+void Fractal::calculateFractal() {
 
     for (int y = 0; y < transformer.HEIGHT; y++) {
         for (int x = 0; x < transformer.WIDTH; x++) {
@@ -57,7 +58,7 @@ void Fractal::calculateFractal(Buffer *buffer) {
                 blue = 255;
             }
 
-            buffer->setPixel(x, y, red, green, blue);
+            buffer.setPixel(x, y, red, green, blue);
         }
     }
 }

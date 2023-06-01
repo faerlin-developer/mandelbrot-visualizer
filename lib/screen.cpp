@@ -7,12 +7,13 @@
 Screen::Screen(std::string title, int width, int height) :
         TITLE(title), WIDTH(width), HEIGHT(height),
         window{nullptr}, m_renderer{nullptr},
-        m_texture{nullptr}, m_buffer{nullptr} {
-    // intentionally empty
-}
+        m_texture{nullptr}, m_buffer{nullptr} {}
 
 bool Screen::init() {
 
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        return false;
+    }
 
     window = SDL_CreateWindow(TITLE.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT,
                               SDL_WINDOW_SHOWN);
@@ -61,4 +62,9 @@ void Screen::close() {
 
 void Screen::setBuffer(Uint32 *buffer) {
     std::memcpy(m_buffer, buffer, WIDTH * HEIGHT * sizeof(Uint32));
+}
+
+bool Screen::isWindowInFocus() {
+    Uint32 mFlags = SDL_GetWindowFlags(window);
+    return mFlags & SDL_WINDOW_MOUSE_FOCUS;
 }
