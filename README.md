@@ -1,1 +1,1 @@
-# mandelbrot-visualizer
+# Mandelbrot and Julia Visualizer
