@@ -5,8 +5,8 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
-<div style="text-align:center">
-    <h3 style="text-align:center">Mandelbrot and Julia Set Visualizer</h3>
+<div align="center">
+    <h3 align="center">Mandelbrot and Julia Set Visualizer</h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
