@@ -43,14 +43,14 @@ $$Z_{n+1} = Z_{n} + C$$
     <img src="img/intro-screenshot.png" width="700">
 </div>
 
-<p align="center">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
 * [SDL][sdl-url] Simple DirectMedia Layer
 * [CMake][cmake-url] C++ build system
 
-<p align="center">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -87,7 +87,7 @@ rely on any external dependencies or services._
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="center">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 Build the dependencies for Ubuntu 22.04+:
 
@@ -116,7 +116,7 @@ work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="center">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Improvements -->
 
@@ -133,7 +133,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (
 and known issues).
 
-<p align="center">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
@@ -141,7 +141,7 @@ and known issues).
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="center">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 
@@ -152,7 +152,7 @@ to kick things off!
 
 * [Choose an Open Source License](https://choosealicense.com)
 
-<p align="center">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
