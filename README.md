@@ -111,6 +111,8 @@ sudo apt-get install libsdl2-2.0-0 libsdl2-dev
 
 ## Usage
 
+<!-- https://www.karlsims.com/julia.html -->
+
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos
 work well in this space. You may also link to more resources.
 
@@ -157,7 +159,7 @@ to kick things off!
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[license-url]: https://github.com/faerlin-developer/mandelbrot-visualizer/blob/main/LICENSE.txt
+[license-url]: LICENSE.txt
 
 [linkedin-url]: https://www.linkedin.com/in/faerlin-pulido/
 
