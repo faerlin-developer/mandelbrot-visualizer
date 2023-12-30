@@ -125,3 +125,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [sdl-url]: https://www.libsdl.org/
 
 [cmake-url]: https://cmake.org/
+
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
