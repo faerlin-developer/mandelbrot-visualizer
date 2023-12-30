@@ -111,6 +111,10 @@ sudo apt-get install libsdl2-2.0-0 libsdl2-dev
 
 ## Usage
 
+<div align="center">
+    <img src="img/usage.png" width="700">
+</div>
+
 <!-- https://www.karlsims.com/julia.html -->
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos
