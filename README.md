@@ -30,9 +30,11 @@
 
 ## About The Project
 
+<br/>
 <div align="center">
     <img src="img/intro-screenshot.png" width="700">
 </div>
+<br/>
 
 The Mandelbrot set is the set of numbers $c$ in the complex plane for which the iteration $z_{n+1} = z_{n} + c$ does not
 diverge to infinity when iterating starting from $z_{0} = 0$. As shown in the screenshot above, this application
