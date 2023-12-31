@@ -72,8 +72,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-The application uses `SDL2` to draw graphics on the screen. Consult the official ]installation
-website](https://wiki.libsdl.org/SDL2/Installation) for SDL2.
+The application uses `SDL2` to draw graphics on the screen. Consult the
+official [installation website](https://wiki.libsdl.org/SDL2/Installation) for SDL2.
 
 Alternatively, you can install SDL2 and its dependencies by running the commands below:
 
