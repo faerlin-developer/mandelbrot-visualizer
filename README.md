@@ -68,7 +68,7 @@ To get a local copy up and running follow these simple steps.
 
 The application uses `SDL2` to draw graphics on the screen. Consult the
 official [installation website](https://wiki.libsdl.org/SDL2/Installation) for SDL2. Alternatively, you can install SDL2
-and its dependencies by running the commands below:
+and its dependencies on bash Linux by running the commands below:
 
 ```bash
 $ sudo apt-get install build-essential git make \
