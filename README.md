@@ -20,7 +20,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#running-the-application">Running the Application</a></li>
       </ul>
     </li>
     <li><a href="#improvements">Improvements</a></li>
@@ -61,7 +61,7 @@ Additional features of the application on the Mandelbrot set window:
 
 ### Built With
 
-* [SDL][sdl-url] Simple DirectMedia Layer
+* [SDL2][sdl-url] Simple DirectMedia Layer
 * [CMake][cmake-url] C++ build system
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -72,30 +72,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+The application uses `SDL2` to draw graphics on the screen. Consult the official ]installation
+website](https://wiki.libsdl.org/SDL2/Installation) for SDL2.
 
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-Build the dependencies for Ubuntu 22.04+:
+Alternatively, you can install SDL2 and its dependencies by running the commands below:
 
 ```bash
 $ sudo apt-get install build-essential git make \
@@ -107,11 +87,28 @@ libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev fcitx-libs-dev \
 libpipewire-0.3-dev libwayland-dev libdecor-0-dev
 ```
 
-Install SDL2:
+```bash
+$ sudo apt-get install libsdl2-2.0-0 libsdl2-dev 
+```
+
+### Running the Application
+
+The application uses `CMake` as a build system. To build and compile the application:
 
 ```bash
-sudo apt-get install libsdl2-2.0-0 libsdl2-dev 
+$ mkdir build
+$ cd build
+$ cmake -S .. -DCMAKE_BUILD_TYPE=Release
+$ make
 ```
+
+Then launch the application:
+
+```bash
+$ ./mandelbrot-visualizer
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Improvements
 
