@@ -1,5 +1,3 @@
-<a name="readme-top"></a>
-
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
@@ -57,18 +55,14 @@ Additional features of the application on the Mandelbrot set window:
 - `Left click` to zoom in and `right click` to zoom out.
 - Press the `space bar` to restore the default scale.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
 * [SDL2][sdl-url] Simple DirectMedia Layer
 * [CMake][cmake-url] C++ build system
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
@@ -107,21 +101,15 @@ Then launch the application:
 $ ./mandelbrot-visualizer
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Improvements
 
 The nested loop in `Fractal::calculateIterationsAndHistogram` is the bottleneck in computing the pixels for the fractal.
 However, this loop is an embarrassingly parallel workload, which can be decomposed to be completed by multiple threads
 using [OpenMP](https://www.openmp.org/).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
