@@ -52,7 +52,6 @@ Below, we show some Julia sets along with their corresponding locations in the M
     <img src="img/usage.png" width="700">
 </div>
 
-
 Additional features of the application on the Mandelbrot set window:
 
 - `Left click` to zoom in and `right click` to zoom out.
