@@ -52,12 +52,13 @@ Below, we show some Julia sets along with their corresponding locations in the M
     <img src="img/usage.png" width="700">
 </div>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 Additional features of the application on the Mandelbrot set window:
 
 - `Left click` to zoom in and `right click` to zoom out.
 - Press the `space bar` to restore the default scale.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
