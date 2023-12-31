@@ -23,7 +23,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#improvements">Improvements</a></li>
     <li><a href="#license">License</a></li>
   </ol>
@@ -31,13 +30,32 @@
 
 ## About The Project
 
-$$Z_{n+1} = Z_{n} + C$$
-
 <div align="center">
     <img src="img/intro-screenshot.png" width="700">
 </div>
 
+The Mandelbrot set is the set of numbers $c$ in the complex plane for which the iteration $z_{n+1} = z_{n} + c$ does not
+diverge to infinity when iterating starting from $z_{0} = 0$. As shown in the screenshot above, this application
+displays two windows, the left of which plots the Mandelbrot set. For a given complex number $c_{0}$ hovered over by the
+mouse pointer, the right window plots the corresponding Julia set consisting of numbers $z$ for which the function $z_
+{n+1} = z_{n} + c_{0}$ does not diverge to infinity starting from $z_{0}=z$.
+
+As you hover the mouse pointer over different points on the Mandelbrot set, watch as the right window transforms from
+one Julia set to another. Because a different Julia set is generated for each point on the Mandelbrot set, the
+Mandelbrot set can be considered a map of all Julia sets.
+
+Below, we show some Julia sets along with their corresponding locations in the Mandelbrot set:
+
+<div align="center">
+    <img src="img/usage.png" width="700">
+</div>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+Additional features of the application on the Mandelbrot set window:
+
+- `Left click` to zoom in and `right click` to zoom out.
+- Press the `space bar` to restore the default scale.
 
 ### Built With
 
@@ -92,14 +110,6 @@ Install SDL2:
 ```bash
 sudo apt-get install libsdl2-2.0-0 libsdl2-dev 
 ```
-
-## Usage
-
-<div align="center">
-    <img src="img/usage.png" width="700">
-</div>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Improvements
 
