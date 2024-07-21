@@ -5,7 +5,6 @@
     <h3 align="center">Mandelbrot and Julia Set Visualizer</h3>
 </div>
 
-
 <details>
   <summary>Table of Contents</summary>
   <ol>
